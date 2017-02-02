@@ -18,9 +18,31 @@ body {
     text-align: left;
 }
 
+nav {
+  background-color: #DEDEDE;
+}
+
 p {
   font-family: 'Open Sans', sans-serif;
   font-weight: 200;
   color: #888;
   text-align: left;
+}
+
+.standard-form{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 100px;
+    text-align: left;
+    padding: 10px;
+    border:
+  }
+
+label {
+  padding:10px
+}
+
+input {
+  margin:10px
 }
