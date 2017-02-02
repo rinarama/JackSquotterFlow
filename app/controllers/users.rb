@@ -6,7 +6,7 @@ post '/users' do
   @user = User.new(params[:user])
   if @user.save
     session[:user_id] = @user.id
-    redirect "/users/#{@user.id}/profile"
+    redirect "/users/#{@user.id}"
   else
     @errors = @user.errors.full_messages
     erb :'/users/new'
@@ -18,12 +18,12 @@ get '/users/login' do
 end
 
 post '/users/login' do
-  @user = User.find_by(email: params[:user][:email])
+  @user = User.find_by(username: params[:user][:username])
   if @user && @user.authenticate(params[:user][:password])
     session[:user_id] = @user.id
     redirect "/"
   else
-    @errors = ["Invalid email or password"]
+    @errors = ["Invalid username or password"]
     erb :'users/login'
   end
 end
