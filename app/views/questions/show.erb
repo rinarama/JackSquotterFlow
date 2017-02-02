@@ -2,6 +2,8 @@
   <section>
     <p> <a href="/questions"> Back to questions... </a> </p>
     <h1> <%= @question.title %> </h1>
+    <a href="/questions/<%= @question.id %>/edit">Edit</a>
+    <a href="/questions/<%= @question.id %>/delete">Delete</a>
     <hr>
     <article>
       <%= @question.content %>
