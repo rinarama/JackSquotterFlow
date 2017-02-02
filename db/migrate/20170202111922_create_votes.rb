@@ -1,7 +1,7 @@
 class CreateVotes < ActiveRecord::Migration
   def change
     create_table :votes do |t|
-      t.integer :value_status
+      t.integer :vote_status
       t.references :user, null: false
 
       t.integer :votable_id
