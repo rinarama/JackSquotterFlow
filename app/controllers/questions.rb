@@ -47,3 +47,8 @@ put "/questions/:id" do
 end
 
 #delete a specifc question record
+delete "/questions/:id" do
+  Question.find_by_id(params[:id]).destroy
+
+  redirect "/questions"
+end
