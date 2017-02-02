@@ -1,0 +1,17 @@
+<div>
+  <section>
+    <p> <a href="/questions"> Back to questions... </a> </p>
+    <h1> <%= @question.title %> </h1>
+    <a href="/questions/<%= @question.id %>/edit">Edit</a>
+    <form action="/questions/<%= @question.id %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="delete">
+    </form>
+    <hr>
+    <article>
+      <%= @question.content %>
+      <p> asked by <%= @question.user.username.capitalize %> </p>
+    </article>
+    <hr>
+  </section>
+</div>
