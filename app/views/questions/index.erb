@@ -1,3 +1,17 @@
 <div>
-  <h1>Questions</h1>
+  <section>
+    <h1>All Questions</h1>
+  </section>
+
+  <section>
+    <% @questions.each do |question| %>
+      <hr>
+      <article>
+        <h3> <%= question.title %> </h3>
+        <p> <%= question.content %> </p>
+        <p> Asked by <%= question.user.username.capitalize %> </p>
+      </article>
+    <% end %>
+    <hr>
+  </section>
 </div>

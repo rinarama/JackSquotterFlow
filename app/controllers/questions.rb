@@ -1,6 +1,6 @@
 #show all questions
 get "/questions" do
-  
+  @questions = Question.all
   erb :"questions/index"
 end
 #get one question record
