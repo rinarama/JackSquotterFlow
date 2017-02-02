@@ -29,4 +29,7 @@ get "/questions/:id" do
 end
 
 #edit a specific question record
+get "/questions/:id/edit" do
+  erb :"/questions/edit"
+end
 #delete a specifc question record
