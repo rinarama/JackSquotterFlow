@@ -1,5 +1,11 @@
 <div>
   <section>
-    <h1> Question show page </h1>
+    <h1> <%= @question.title %> </h1>
+    <hr>
+    <article>
+      <%= @question.content %>
+      <p> asked by <%= @question.user.username.capitalize %> </p>
+    </article>
+    <hr>
   </section>
 </div>
