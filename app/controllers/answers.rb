@@ -28,24 +28,24 @@ get "/questions/:id/answers" do
   erb :"answers/show"
 end
 
-get "/questions/answers/:id/edit" do
+get "/questions/:question_id/answers/:id/edit" do
+  @question = Question.find_by_id(params[:question_id])
   @answer = Answer.find_by_id(params[:id])
   erb :"/answers/edit"
 end
 
-put "/questions/:id/answers/:id" do
-  @question = Question.find_by_id(params[:id])
-  @answer = @question.answers.find_by_id(params[:id])
-  binding.pry
+put "/questions/:question_id/answers/:id" do
+  @question = Question.find_by_id(params[:question_id])
+  @answer = @question.answers.find_by(id: params[:id])
   if @answer.update(params[:answer])
-    redirect "/questions/#{params[:id]}"
+      redirect "/questions/#{params[:question_id]}"
   else
-    @errors = @answer.errors.full_messages
-    erb :"/answers/new"
+      @errors = @answer.errors.full_messages
+      erb :"/answers/edit"
   end
 end
 
-delete "/questions/:id/answers/:id" do
+delete "/questions/:question_id/answers/:id" do
   Answer.find_by_id(params[:id]).destroy
-  redirect "/questions/#{params[:id]}"
+  redirect "/questions/#{params[:question_id]}"
 end

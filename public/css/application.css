@@ -202,3 +202,79 @@ input {
 .question-container form.new-edit-form  a:hover {
   background-color: #ea6311;
 }
+
+a.answer-footer  {
+  background-color: #888;
+  color: white;
+  padding: 5px;
+  font-size: 15px;
+}
+
+a.answer-footer:hover {
+  background-color: #32cd32;
+}
+
+.answer-show .vote {
+  display: inline-block;
+  width: 100px;
+  text-align: center;
+  vertical-align: top;
+  margin-top: 15px;
+}
+
+.answer-show .vote p {
+  text-align: center;
+  margin: 0px
+}
+
+.answer-show .vote button {
+   background-color: transparent;
+   border: none;
+   font-size: 2em;
+   padding-top: 5px;
+   color: #8C8C8C;
+   vertical-align: sub;
+   padding: 1px 0px 0px 0px;
+}
+
+.answer-show .answer-content {
+  display: inline-block;
+  width: 900px;
+}
+
+.answer-show .answer-content {
+  display: inline-block;
+  width: 900px;
+}
+
+.edit-answer form.delete {
+  display: inline-block;
+}
+
+.edit-answer form.delete input {
+  border: none;
+  background: transparent;
+  background-color: #ff2e2e;
+  color: white;
+  padding: 10px;
+}
+
+.edit-answer form.delete input:hover {
+  background-color: #ea6311;
+}
+
+.edit-answer a.edit {
+  border: none;
+  background: transparent;
+  background-color: #888;
+  color: white;
+  padding: 10px;
+}
+
+.edit-answer a.edit:hover {
+  background-color: #ea6311;
+}
+
+.question-show {
+  margin-bottom: 15px;
+}

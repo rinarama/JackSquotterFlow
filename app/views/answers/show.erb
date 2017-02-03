@@ -1,19 +1,25 @@
-<article class="answer-container">
+<div class="answer-container">
 
   <% question.answers.each do |answer| %>
-    <div class="answer-content">
-      <p> - "<%= answer.answer %>"
-      <%= date_converter(answer.created_at, answer.updated_at) %>  by <a class="profile" href="users/:id"><%= answer.user.username%></a> </p>
-        <% if current_user && authorized?(answer.user.id)%>
-      <div "edit-answer">
-        <a class="edit" href="answers/<%= answer.id %>/edit">edit</a>
-        <form class="delete" action="/questions/:id/answers/<%= answer.id %>" method="post">
-          <input type="hidden" name="_method" value="delete">
-          <input type="submit" value="delete">
-        </form>
-      </div>
+
+    <section class="answer-show">
+      <%=  erb :'/partials/_votes'%>
+      <article class="answer-content">
+        <p> "<%= answer.answer %>"
+        <%= date_converter(answer.created_at, answer.updated_at) %>  by <a class="profile" href="users/:id"><%= answer.user.username.capitalize%></a> </p>
+
+      <% if current_user && authorized?(answer.user.id)%>
+        <div class="edit-answer">
+          <a class="edit" href="/questions/<%= @question.id %>/answers/<%= answer.id %>/edit">edit</a>
+          <form class="delete" action="/questions/<%= @question.id %>/answers/<%= answer.id %>" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <input type="submit" value="delete">
+          </form>
+        </div>
       <%end%>
-    </div>
+      </article>
+    </section>
+
   <%end%>
 
-</article>
+</div>
