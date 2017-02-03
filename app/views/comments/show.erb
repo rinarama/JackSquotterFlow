@@ -1,0 +1,6 @@
+<section class="comments">
+  <p> <%= comment.comment %>
+      - <a href=""><%= comment.user.username %></a>
+      <%= date_converter(comment.created_at, comment.updated_at, false) %>
+  </p>
+</section>
