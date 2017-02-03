@@ -21,12 +21,19 @@ post "/questions/:id/comments" do
   @comment = @question.comments.new(comment: params[:comment],
                             user_id: current_user.id)
 
-  if @comment.save
-    redirect "questions/#{@question.id}"
-  else
-    @errors = @comment.errors.full_messages
-    erb :"comments/new"
+  if request.xhr? && @comment.save
+    # send back just one comment data
+    erb :"comments/show", layout: false, locals: { question: @question, comment: @comment }
+  elsif @comment.save
+
   end
+
+  # if @comment.save
+  #   redirect "questions/#{@question.id}"
+  # else
+  #   @errors = @comment.errors.full_messages
+  #   erb :"comments/new"
+  # end
 end
 
 # show
