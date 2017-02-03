@@ -1,8 +1,8 @@
-<div class="">
+<div class="answer-container">
 
+  <h1>What's your answer?</h1>
   <%=  erb :'/partials/_errors'%>
-
-  <form class="" action="/answers" method="post">
+  <form class="answer-form" action="/questions/<%= @question.id %>/answers" method="post">
     <label for="your_answer">Your Answer</label>
     <input type="text" name="answer" value="" id='answer'>
 
