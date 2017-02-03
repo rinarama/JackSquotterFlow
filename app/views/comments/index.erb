@@ -1,16 +1,12 @@
 <section class="comment-container">
-<% if comments?(question) %>
-<hr>
-  <% question.comments.each do |comment| %>
-  <section class="comments">
-    <p> <%= comment.comment %>
-        - <a href=""><%= comment.user.username %></a>
-        <%= date_converter(comment.created_at, comment.updated_at, false) %>
-    </p>
-  </section>
+  <% if comments?(question) %>
   <hr>
+    <% question.comments.each do |comment| %>
+
+      <%= erb :"comments/show", locals: {comment: comment}%>
+    <hr>
+    <% end %>
   <% end %>
-<% end %>
 
   <div class="comment-form">
     <a href="">add a comment</a>
