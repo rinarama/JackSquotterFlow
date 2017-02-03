@@ -1,0 +1,18 @@
+<section class="comment-container">
+<% if comments?(question) %>
+<hr>
+  <% question.comments.each do |comment| %>
+  <section class="comments">
+    <p> <%= comment.comment %>
+        - <a href=""><%= comment.user.username %></a>
+        <%= date_converter(comment.created_at, comment.updated_at, false) %>
+    </p>
+  </section>
+  <hr>
+  <% end %>
+<% end %>
+
+  <div class="comment-form">
+    <a href="">add a comment</a>
+  </div>
+</section>

@@ -13,15 +13,19 @@
     <article class="contents">
       <p> <%= @question.content %> </p>
       <p> <%= date_converter(@question.created_at, @question.updated_at) %> by <a href=""><%= @question.user.username.capitalize %> </a> </p>
-        <% if current_user && authorized?(@question.user.id)%>
-      <div "edit-question">
-      <a class="edit" href="/questions/<%= @question.id %>/edit">edit</a>
-      <form class="delete" action="/questions/<%= @question.id %>" method="post">
-        <input type="hidden" name="_method" value="delete">
-        <input type="submit" value="delete">
-      </form>
-      <div>
-        <%end%>
+
+      <% if current_user && authorized?(@question.user.id)%>
+      <div class="edit-question">
+        <a class="edit" href="/questions/<%= @question.id %>/edit">edit</a>
+        <form class="delete" action="/questions/<%= @question.id %>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <input type="submit" value="delete">
+        </form>
+      </div>
+      <% end %>
+
+      <%= erb :"comments/index", locals: {question: @question}%>
+
     </article>
   </section>
   <hr>
