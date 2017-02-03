@@ -1,18 +1,42 @@
-#show all comments
+# index
 get "/questions/:id/comments" do
   redirect "questions/#{params[:id]}"
 end
 
-#get one comment record
 
+# get new comment
+get "/questions/:id/comments/new" do
+  @question = Question.find_by_id(params[:id])
 
-#get the form for a new comment
+  erb :"comments/new"
+end
 
+# post a new comment
+post "/questions/:id/comments" do
+  @question = Question.find_by_id(params[:id])
+  @question.comments.create(comment: params[:comment],
+                            user_id: current_user.id)
 
-#post a new comment
+  redirect "questions/#{@question.id}"
+end
 
+# show
+get "/questions/:id/comments/:id" do
+  redirect "questions/#{params[:id]}"
+end
 
-#edit a specific comment record
+# get edit form
+get "/questions/:id/comments/:id/edit" do
 
+end
 
-#delete a specifc comment record
+# Update comment
+put "/questions/:id/comments/:id" do
+
+end
+
+# Delete comment
+delete "/questions/:id/comments/:id" do
+
+  redirect "questions/#{params[:id]}"
+end
