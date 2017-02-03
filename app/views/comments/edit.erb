@@ -1,0 +1,10 @@
+<div class="question-container">
+  <h1>Edit comment in: <%= @question.title %></h1>
+  <%= erb :"partials/_errors" %>
+  <form class="new-edit-form" action="/questions/<%= @question.id %>/comments/<%= @comment.id %>" method="post">
+    <input type="hidden" name="_method" value="put">
+    <textarea rows="5" cols="81" name="comment"><%= @comment.comment %></textarea><br><br>
+    <input type="submit" value="Edit Comment">
+    <a href="/questions/<%= @question.id %>">Cancel</a>
+  </form>
+</div>

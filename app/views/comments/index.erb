@@ -3,7 +3,7 @@
   <hr>
     <% question.comments.each do |comment| %>
 
-      <%= erb :"comments/show", locals: {comment: comment}%>
+      <%= erb :"comments/show", locals: {question: question, comment: comment}%>
     <hr>
     <% end %>
   <% end %>

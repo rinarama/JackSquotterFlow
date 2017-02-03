@@ -26,22 +26,34 @@ post "/questions/:id/comments" do
 end
 
 # show
-get "/questions/:id/comments/:id" do
-  redirect "questions/#{params[:id]}"
+get "/questions/:q_id/comments/:id" do
+  redirect "questions/#{params[:q_id]}"
 end
 
 # get edit form
-get "/questions/:id/comments/:id/edit" do
+get "/questions/:q_id/comments/:id/edit" do
+  @question = Question.find_by_id(params[:q_id])
+  @comment = Comment.find_by_id(params[:id])
 
+  erb :"comments/edit"
 end
 
 # Update comment
-put "/questions/:id/comments/:id" do
+put "/questions/:q_id/comments/:id" do
+  @question = Question.find_by_id(params[:q_id])
+  @comment = Comment.find_by_id(params[:id])
 
+  if @comment.update(comment: params[:comment])
+    redirect "questions/#{@question.id}"
+  else
+    @errors = @comment.errors.full_messages
+    erb :"comments/edit"
+  end
 end
 
 # Delete comment
-delete "/questions/:id/comments/:id" do
-
+delete "/questions/:q_id/comments/:id" do
+  Comment.find_by_id(params[:id]).destroy
+  
   redirect "questions/#{params[:id]}"
 end
