@@ -8,7 +8,11 @@ end
 get "/questions/:id/comments/new" do
   @question = Question.find_by_id(params[:id])
 
-  erb :"comments/new"
+  if request.xhr?
+    erb :"comments/new", layout: false
+  else
+    erb :"comments/new"
+  end
 end
 
 # post a new comment
