@@ -2,7 +2,7 @@
   <h1>Edit answer</h1>
   <%=  erb :'/partials/_errors'%>
 
-  <form class="edit-answer-form" action="/questions/:id/answers/<%= @answer.id%>" method="post">
+  <form class="edit-answer-form" action="/questions/<%= @question.id%>/answers/<%= @answer.id%>" method="post">
     <input type="hidden" name="_method" value="put">
     <label for="edit_answer">Edit Answer</label>
     <input type="text" name="answer[answer]" value="<%= @answer.answer%>" id="answer">
