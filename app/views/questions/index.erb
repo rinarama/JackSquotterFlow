@@ -7,7 +7,7 @@
   <section class="question-summary-body">
     <% @questions.each do |question| %>
       <hr>
-      <article class="question-summary">
+      <article class="flex-container question-summary">
         <div class="mini-counter">
           <p>0</p>
           <p>votes</p>
@@ -17,9 +17,9 @@
           <p>answers</p>
         </div>
         <div class="summary">
-        <h3> <a href="/questions/<%= question.id %>"> <%= question.title %> </a> </h3>
+        <h3> <a href="/questions/<%= question.id %>"> <%= question.title.capitalize %> </a> </h3>
         <p> <%= stub(question.content) %> </p>
-        <p> <%= date_converter(question.created_at, question.updated_at) %> by <%= question.user.username.capitalize %> </p>
+        <p> <%= date_converter(question.created_at, question.updated_at) %> by <a href=""><%= question.user.username.capitalize %></a></p>
         <div>
       </article>
     <% end %>
