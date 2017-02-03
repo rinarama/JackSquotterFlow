@@ -65,6 +65,10 @@ input {
   transition: 0.5s;
 }
 
+/*.question-summary-header h1 {
+  margin-top: 45px;
+}*/
+
 .question-summary-header a {
   background-color: #888;
   color: white;
@@ -146,4 +150,32 @@ input {
 .question-show .contents {
   display: inline-block;
   width: 900px;
+}
+
+.question-show .contents form {
+  display: inline-block;
+}
+
+.question-show .contents input {
+  border: none;
+  background: transparent;
+  background-color: #888;
+  color: white;
+  padding: 10px;
+}
+
+.question-show .contents input:hover {
+  background-color: #ea6311;
+}
+
+.question-show .contents a.edit {
+  border: none;
+  background: transparent;
+  background-color: #888;
+  color: white;
+  padding: 10px;
+}
+
+.question-show .contents a.edit:hover {
+  background-color: #ea6311;
 }
