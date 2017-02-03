@@ -14,10 +14,15 @@ end
 # post a new comment
 post "/questions/:id/comments" do
   @question = Question.find_by_id(params[:id])
-  @question.comments.create(comment: params[:comment],
+  @comment = @question.comments.new(comment: params[:comment],
                             user_id: current_user.id)
 
-  redirect "questions/#{@question.id}"
+  if @comment.save
+    redirect "questions/#{@question.id}"
+  else
+    @errors = @comment.errors.full_messages
+    erb :"comments/new"
+  end
 end
 
 # show
