@@ -38,7 +38,7 @@ get "/questions/:id/answers" do
   erb :"answers/show"
 end
 
-get "/answers/:id/edit" do
+get "/questions/answers/:id/edit" do
   @answer = Answer.find_by_id(id: params[:id])
   erb :"/answers/edit"
 end
@@ -53,7 +53,7 @@ put "/answers/:id" do
   end
 end
 
-delete "/answers/:id" do
+delete "/questions/:id/answers/:id" do
   Answer.find_by_id(params[:id]).destroy
   redirect "/answers"
 end
