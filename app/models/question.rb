@@ -8,6 +8,6 @@ class Question < ActiveRecord::Base
   validates :title, :content, :user_id, presence: true
 
   def all_votes
-    self.votes.sum(:value)
+    self.votes.sum(:vote_status)
   end
 end
