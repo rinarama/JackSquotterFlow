@@ -9,6 +9,9 @@ end
 
 get "/questions/:id/answers/new" do
   @question = Question.find_by_id(params[:id])
+  if request.xhr?
+    erb :"answers/new", layout:false
+  else
     erb :"answers/new"
 end
 

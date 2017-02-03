@@ -1,0 +1,11 @@
+<div class="answer-container">
+  <% if login? %>
+    <h1>What's your answer?</h1>
+    <%=  erb :'/partials/_errors'%>
+    <form class="answer-form" action="/questions/<%= @question.id %>/answers" method="post">
+      <label for="your_answer">Your Answer</label>
+      <input type="text" name="answer" value="" id='answer'>
+      <input type="submit" name="" value="Post Your Answer">
+    </form>
+  <%end%>
+</div>
