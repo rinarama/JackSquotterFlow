@@ -34,4 +34,3 @@ rina.questions.create([
     title:   "ChuckNorris Fact Number 2",
     content: Faker::ChuckNorris.fact
   }])
-

@@ -39,7 +39,7 @@ put "/questions/:id" do
   @question = Question.find_by_id(params[:id])
 
   if  @question.update(params[:question])
-    redirect "/questions/#{question.id}"
+    redirect "/questions/#{@question.id}"
   else
     @errors = @question.errors.full_messages
     erb :"/questions/edit"
