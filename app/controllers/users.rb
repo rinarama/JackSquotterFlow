@@ -2,9 +2,12 @@ get '/users' do
   redirect '/'
 end
 
-
 get '/users/new' do
+  if request.xhr?
+    erb :'partials/_register', layout: false
+  else
     erb :'users/new'
+  end
 end
 
 post '/users' do
@@ -19,7 +22,11 @@ post '/users' do
 end
 
 get '/users/login' do
+  if request.xhr?
+    erb :'partials/_login', layout: false
+  else
     erb :'users/login'
+  end
 end
 
 post '/users/login' do
