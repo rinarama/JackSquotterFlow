@@ -1,6 +1,7 @@
 #rina seeds
 #users
 User.create(username: "karina", email: "karina@test.com", password: "p@55w0rd1")
+
 User.create(username: "leila", email: "leilaa@test.com", password: "p@55w0rd2")
 User.create(username: "kendy", email: "kendy@test.com", password: "p@55w0rd3")
 
@@ -33,3 +34,4 @@ rina.questions.create([
     title:   "ChuckNorris Fact Number 2",
     content: Faker::ChuckNorris.fact
   }])
+

@@ -1,10 +1,8 @@
-#show all questions
 get "/questions" do
   @questions = Question.all
   erb :"questions/index"
 end
 
-#get the form for a new question
 get "/questions/new" do
   require_user
   erb :"questions/new"
