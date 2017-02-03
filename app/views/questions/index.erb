@@ -1,16 +1,26 @@
-<div>
-  <section>
+<div class="question-container">
+  <section class="question-summary-header">
     <h1>All Mischievous Questions</h1>
     <p><a href="/questions/new"> Ask Question </a></p>
   </section>
 
-  <section>
+  <section class="question-summary-body">
     <% @questions.each do |question| %>
       <hr>
-      <article>
-        <h3> <a href="/questions/<%= question.id %>"> <%= question.title %> </a> </h3>
-        <p> <%= question.content %> </p>
-        <p> Asked by <%= question.user.username.capitalize %> </p>
+      <article class="flex-container question-summary">
+        <div class="mini-counter">
+          <p>0</p>
+          <p>votes</p>
+        </div>
+        <div class="mini-counter">
+          <p>0</p>
+          <p>answers</p>
+        </div>
+        <div class="summary">
+        <h3> <a href="/questions/<%= question.id %>"> <%= question.title.capitalize %> </a> </h3>
+        <p> <%= stub(question.content) %> </p>
+        <p> <%= date_converter(question.created_at, question.updated_at) %> by <a href=""><%= question.user.username.capitalize %></a></p>
+        <div>
       </article>
     <% end %>
     <hr>

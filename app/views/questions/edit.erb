@@ -1,11 +1,11 @@
-<div>
+<div class="question-container">
   <h1>Edit question</h1>
   <%= erb :"partials/_errors" %>
-  <form action="/questions/<%= @question.id %>" method="post">
+  <form class="new-edit-form" action="/questions/<%= @question.id %>" method="post">
     <input type="hidden" name="_method" value="put">
     <label for="title">Title</label>
     <input id="title" type="text" name="question[title]" value="<%= @question.title %>"><br><br>
-    <textarea rows="4" cols="50" name="question[content]"><%= @question.content %></textarea><br><br>
+    <textarea rows="5" cols="81" name="question[content]"><%= @question.content %></textarea><br><br>
     <input type="submit" value="Update Your Question">
     <a href="/questions/<%= @question.id %>">Cancel</a>
   </form>
