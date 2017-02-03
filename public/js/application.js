@@ -1,14 +1,22 @@
 $(document).ready(function() {
-  $("#login-link").on("click", function(e){
+  $("#register-link").on("click", function(e){
       e.preventDefault();
-      url = $(e.target).attr("href")
-      $this = $(this)
+      url = $(e.target).attr("href");
       $.ajax({
         method: 'get',
         url: url
       }).success(function(response){
-        $("#new-note-form").append(response);
-        $this.hide()
+        $("#user-auth").html(response);
       });
     });
+    $(".standard-form").on("submit", function(e){
+        e.preventDefault();
+        url = $(e.target).attr("action");
+        $.ajax({
+          method: 'get',
+          url: url
+        }).success(function(response){
+          $(".box").hide()
+        });
+      });
 });
