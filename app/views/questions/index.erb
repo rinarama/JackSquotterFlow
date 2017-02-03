@@ -10,7 +10,7 @@
       <article>
         <h3> <a href="/questions/<%= question.id %>"> <%= question.title %> </a> </h3>
         <p> <%= question.content %> </p>
-        <p> Asked by <%= question.user.username.capitalize %> </p>
+        <p> <%= date_converter(question.created_at, question.updated_at) %> by <%= question.user.username.capitalize %> </p>
       </article>
     <% end %>
     <hr>
