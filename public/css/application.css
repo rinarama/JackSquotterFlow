@@ -63,6 +63,7 @@ input {
   text-decoration: none;
   -webkit-transition: 0.2s; /* Safari */
   transition: 0.2s;
+  color: #007def;
 }
 
 .question-summary-header a {
@@ -148,19 +149,19 @@ input {
   width: 900px;
 }
 
-.question-show .contents form {
+.question-show .contents form.delete {
   display: inline-block;
 }
 
-.question-show .contents input {
+.question-show .contents form.delete input {
   border: none;
   background: transparent;
-  background-color: #888;
+  background-color: #ff2e2e;
   color: white;
   padding: 10px;
 }
 
-.question-show .contents input:hover {
+.question-show .contents form.delete input:hover {
   background-color: #ea6311;
 }
 
