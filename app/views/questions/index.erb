@@ -9,11 +9,11 @@
       <hr>
       <article class="flex-container question-summary">
         <div class="mini-counter">
-          <p> @question.all_votes </p>
+          <p> <%=question.all_votes %></p>
           <p>votes</p>
         </div>
         <div class="mini-counter">
-          <p>0</p>
+          <p><%=question.answers.count%></p>
           <p>answers</p>
         </div>
         <div class="summary">
