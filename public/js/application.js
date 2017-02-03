@@ -31,9 +31,8 @@ $(document).ready(function() {
         $(e.target).children("textarea").val("");
       })
       .fail(function(msg) {
-        debugger
+        $(e.target).before(msg.responseText);
       })
-
   })
 
   // new form cancel button
@@ -43,6 +42,7 @@ $(document).ready(function() {
     $(".comment-form a").removeClass("hidden");
     $(".new-edit-form").remove();
   });
+  
 // END OF COMMENT AJAX
 
 });

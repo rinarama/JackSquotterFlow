@@ -25,15 +25,18 @@ post "/questions/:id/comments" do
     # send back just one comment data
     erb :"comments/show", layout: false, locals: { question: @question, comment: @comment }
   elsif @comment.save
+    redirect "questions/#{@question.id}"
+  else
+    @errors = @comment.errors.full_messages
 
+    if request.xhr?
+      status 422
+      erb :"partials/_errors", locals: {errors: @errors}, layout: false
+    else
+      erb :"comments/new"
+    end
   end
 
-  # if @comment.save
-  #   redirect "questions/#{@question.id}"
-  # else
-  #   @errors = @comment.errors.full_messages
-  #   erb :"comments/new"
-  # end
 end
 
 # show
