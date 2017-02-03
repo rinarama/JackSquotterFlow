@@ -1,19 +1,7 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#rina seeds
 #users
-User.create(username: "rina", email: "rina@test.com", password: "p@55w0rd1")
+User.create(username: "karina", email: "karina@test.com", password: "p@55w0rd1")
+
 User.create(username: "leila", email: "leilaa@test.com", password: "p@55w0rd2")
 User.create(username: "kendy", email: "kendy@test.com", password: "p@55w0rd3")
 
@@ -31,3 +19,18 @@ Answer.create(answer:"No you just beep boop beep.", question_id: 2, user_id: 3)
 # Comment.create(comment:"What kind of question is that?", commentable_id: {question_id: 3} ,commentable_type: "Question", user_id:1)
 # Comment.create(comment:"Nuh uh, they can dream", commentable_id: {answer_id: 3} ,commentable_type: "Answer", user_id:2)
 # Comment.create(comment:"It's just, like, a regular question, whatever.", commentable_id: {comment_id: 1} ,commentable_type: "Comment", user_id: 3)
+
+#Kendi Seeds
+# Create sample user
+rina = User.create(username:"rina", email: "rina@test.com", password: "aaaaaa")
+
+# Create sample questions
+rina.questions.create([
+  {
+    title:   "ChuckNorris Fact Number 1",
+    content: Faker::ChuckNorris.fact
+  },
+  {
+    title:   "ChuckNorris Fact Number 2",
+    content: Faker::ChuckNorris.fact
+  }])

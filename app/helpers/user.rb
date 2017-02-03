@@ -5,3 +5,11 @@ end
 def require_user
   redirect '/users/new' unless current_user
 end
+
+def login?
+  !!current_user
+end
+
+def authorized?(id)
+  current_user.id === id
+end
