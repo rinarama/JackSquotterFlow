@@ -27,7 +27,8 @@ $(document).ready(function() {
       data: $(e.target).serialize()
     })
       .done(function(msg) {
-        $(e.target).before(msg);
+        $(".comments-content").append(msg);
+        $(e.target).children("textarea").val("");
       })
       .fail(function(msg) {
         debugger
