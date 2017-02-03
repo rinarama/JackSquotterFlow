@@ -17,7 +17,7 @@
       <nav>
         <% if current_user %>
           <a href="/" id="home-button" class="nav-bar-button">Home</a>
-          <a href="/users/<%= current_user.id %>" class="nav-bar-button">Profile</a>
+          <a href="/users/<%= current_user.id %>" class="nav-bar-button"><%=current_user.username%>'s Profile</a>
           <a href="/logout" class="nav-bar-button">Logout</a>
         <% else %>
           <a href="/" id="home-button" class="nav-bar-button">Home</a>
