@@ -54,6 +54,6 @@ end
 # Delete comment
 delete "/questions/:q_id/comments/:id" do
   Comment.find_by_id(params[:id]).destroy
-  
-  redirect "questions/#{params[:id]}"
+
+  redirect "questions/#{params[:q_id]}"
 end
