@@ -7,8 +7,8 @@ end
 # "/questions/:id/answers/:id/comments"
 
 get "/questions/:id/answers" do
-  @answers = Answer.all
-  erb :"answers/"
+  @answers = @questions.answers
+  erb :"answers/", :locals => {:answer => params[:answer]}
 end
 
 get "/answers/new" do

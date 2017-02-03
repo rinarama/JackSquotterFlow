@@ -1,1 +1,19 @@
-<h1>Answer: <%= @answer.answer %></h1>
+<article class="answer-container">
+
+  <% question.answers.each do |answer| %>
+    <div class="answer-content">
+      <p>Answer: <%= answer.answer %></p>
+      <p> <%= date_converter(answer.created_at, answer.updated_at) %> </p>
+        <% if current_user && authorized?(question.user.id)%>
+      <div "edit-answer">
+        <a class="edit" href="/questions/:id/answers/<%= answer.id %>/edit">edit</a>
+        <form class="delete" action="/questions/:id/answers/<%= answer.id %>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <input type="submit" value="delete">
+        </form>
+      </div>
+      <%end%>
+    </div>
+  <%end%>
+
+</article>
