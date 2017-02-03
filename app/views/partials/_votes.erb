@@ -1,0 +1,9 @@
+<div class="vote">
+  <form method="post" action='/questions/<%= @question.id %>/upvote' class="inline">
+    <button type="submit" id="upvote"></button>
+  </form>
+  <p><%= @question.votes %></p>
+  <form method="post" action='/questions/<%= @question.id %>/downvote' class="inline">
+    <button type="submit" id="downvote"></button>
+  </form>
+</div>
