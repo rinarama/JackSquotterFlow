@@ -10,7 +10,7 @@
     <hr>
     <article>
       <%= @question.content %>
-      <p> asked by <%= @question.user.username.capitalize %> </p>
+      <p> <%= date_converter(@question.created_at, @question.updated_at) %> by <%= @question.user.username.capitalize %> </p>
     </article>
     <hr>
   </section>
