@@ -224,3 +224,7 @@ section.comments p {
   padding: 5px;
   font-size: 10px;
 }
+
+.hidden {
+  display: none;
+}

@@ -9,7 +9,7 @@ get "/questions/:id/comments/new" do
   @question = Question.find_by_id(params[:id])
 
   if request.xhr?
-    erb :"comments/new", layout: false
+    erb :"comments/_newform", layout: false, locals: { question: @question }
   else
     erb :"comments/new"
   end

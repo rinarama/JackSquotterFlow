@@ -9,9 +9,9 @@ $(document).ready(function() {
       method: "get"
     })
       .done(function(msg) {
-        debugger
+        $(e.target).addClass("hidden");
+        $(e.target).parent().append(msg);
       });
-
   });
-  
+
 });
