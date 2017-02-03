@@ -203,6 +203,7 @@ input {
   background-color: #ea6311;
 }
 
+
 a.answer-footer  {
   background-color: #888;
   color: white;
@@ -277,4 +278,24 @@ a.answer-footer:hover {
 
 .question-show {
   margin-bottom: 15px;
+
+section.comment-container {
+  margin: 30px 0px 10px 0px;
 }
+
+section.comments {
+  padding-left: 20px;
+}
+
+section.comments p {
+  font-size: 14px;
+}
+
+.question-show .contents section.comments a.edit {
+  padding: 5px;
+  font-size: 10px;
+}
+
+.question-show .contents section.comments form.delete input {
+  padding: 5px;
+  font-size: 10px;
