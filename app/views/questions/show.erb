@@ -1,0 +1,24 @@
+<div class="question-container">
+  <section class="question-summary-header">
+    <h1> <%= @question.title.capitalize %> </h1>
+    <p> <a href="/questions"> Back to questions... </a> </p>
+  </section>
+  <hr>
+  <section class="question-show">
+    <div class="vote">
+      <button class="fa fa-sort-asc"></button>
+      <p>0</p>
+      <button class="fa fa-sort-desc"></button>
+    </div>
+    <article class="contents">
+      <p> <%= @question.content %> </p>
+      <p> <%= date_converter(@question.created_at, @question.updated_at) %> by <a href=""><%= @question.user.username.capitalize %> </a> </p>
+      <a class="edit" href="/questions/<%= @question.id %>/edit">edit</a>
+      <form class="delete" action="/questions/<%= @question.id %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="delete">
+      </form>
+    </article>
+  </section>
+  <hr>
+</div>
