@@ -202,3 +202,25 @@ input {
 .question-container form.new-edit-form  a:hover {
   background-color: #ea6311;
 }
+
+section.comment-container {
+  margin: 30px 0px 10px 0px;
+}
+
+section.comments {
+  padding-left: 20px;
+}
+
+section.comments p {
+  font-size: 14px;
+}
+
+.question-show .contents section.comments a.edit {
+  padding: 5px;
+  font-size: 10px;
+}
+
+.question-show .contents section.comments form.delete input {
+  padding: 5px;
+  font-size: 10px;
+}
