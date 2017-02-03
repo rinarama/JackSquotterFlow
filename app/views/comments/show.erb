@@ -3,4 +3,13 @@
       - <a href=""><%= comment.user.username %></a>
       <%= date_converter(comment.created_at, comment.updated_at, false) %>
   </p>
+
+  <div class="edit-question">
+    <a class="edit" href="/questions/<%= question.id %>/comments/<%= comment.id %>/edit">edit</a>
+    <form class="delete" action="/questions/<%= question.id %>/comments/<%= comment.id %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="delete">
+    </form>
+  </div>
+
 </section>
