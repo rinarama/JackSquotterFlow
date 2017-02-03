@@ -1,5 +1,6 @@
 <div>
   <h1>Ask your mischievous question!</h1>
+  <%= erb :"partials/_errors" %>
   <form action="/questions" method="post">
     <label for="title">Title</label>
     <input id="title" type="text" name="question[title]" placeholder="What's your mischievous curiousity? Be specific."><br><br>

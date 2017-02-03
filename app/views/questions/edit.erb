@@ -1,5 +1,6 @@
 <div>
   <h1>Edit question</h1>
+  <%= erb :"partials/_errors" %>
   <form action="/questions/<%= @question.id %>" method="post">
     <input type="hidden" name="_method" value="put">
     <label for="title">Title</label>
