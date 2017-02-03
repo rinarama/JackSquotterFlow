@@ -2,7 +2,7 @@
   <form method="post" action='/questions/<%= @question.id %>/upvote' class="inline">
     <button class="fa fa-sort-asc" type="submit" id="upvote"></button>
   </form>
-  <p><%= @question.votes %></p>
+  <p><%= @question.votes.count %></p>
   <form method="post" action='/questions/<%= @question.id %>/downvote' class="inline">
     <button class="fa fa-sort-desc" type="submit" id="downvote"></button>
   </form>
