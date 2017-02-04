@@ -115,6 +115,22 @@ $(document).ready(function() {
 
 // END OF COMMENT AJAX
 
+//RINA AJAX BEGINS HERE
+// Hide Answer button/ Show Answer form
+$('.answer-footer').on('click', function(e){
+  e.preventDefault();
+
+  $.ajax({
+    url: $(e.target).attr('href'),
+    method: 'get'
+  }).success(function(response){
+    $(e.target).hide().html(response)
+    $('.answer-container').html(response);
+  });
+});
+
+//RINA AJAX ENDS HERE
+
   $("#register-link").on("click", function(e){
       e.preventDefault();
       url = $(e.target).attr("href");

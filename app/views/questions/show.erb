@@ -26,8 +26,8 @@
     <hr>
   </section>
 
-  <div>
+  <div id="answer-form">
     <a class="answer-footer" href="/questions/<%= @question.id %>/answers/new">Answer This Question</a>
-    <%= erb :"answers/show", locals: {question: @question} %>
   </div>
+    <%= erb :"answers/show", locals: {question: @question} %>
 </div>
