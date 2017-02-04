@@ -5,16 +5,23 @@ end
 
 get "/questions/new" do
   require_user
-  erb :"questions/new"
+  if request.xhr?
+    erb :'/partials/_question_form', layout: false
+  else
+    erb :"questions/new"
+  end
 end
 
 #post a new question
 post "/questions" do
   require_user
   question = current_user.questions.new(params[:question])
-
   if question.save
-    redirect "/questions"
+    if request.xhr?
+      erb :"/questions", layout: false
+    else
+      redirect "/questions"
+    end
   else
     @errors = question.errors.full_messages
     erb :"questions/new"
