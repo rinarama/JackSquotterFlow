@@ -13,6 +13,7 @@ get "/questions/:id/answers/new" do
     erb :"answers/new", layout:false
   else
     erb :"answers/new"
+  end
 end
 
 post "/questions/:id/answers" do
