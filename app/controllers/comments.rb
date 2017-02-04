@@ -71,7 +71,13 @@ put "/questions/:q_id/comments/:id" do
     redirect "questions/#{@question.id}"
   else
     @errors = @comment.errors.full_messages
+
+    if request.xhr?
+      status 422
+      erb :"partials/_errors", locals: {errors: @errors}, layout: false
+    else
     erb :"comments/edit"
+    end
   end
 end
 

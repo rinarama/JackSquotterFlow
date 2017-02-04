@@ -92,6 +92,9 @@ $(document).ready(function() {
     $(".new-edit-form").remove();
   });
 
+  // DELETE COMMENT
+  
+
 // END OF COMMENT AJAX
 
 });
