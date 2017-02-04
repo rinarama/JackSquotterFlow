@@ -1,7 +1,7 @@
-<section class="comments">
-  <p> <%= comment.comment %>
+<section id="comment_id_<%= comment.id %>"class="comments">
+  <p> <span class="comment"> <%= comment.comment %> </span>
       - <a href=""><%= comment.user.username %></a>
-      <%= date_converter(comment.created_at, comment.updated_at, false) %>
+      <span class="date"> <%= date_converter(comment.created_at, comment.updated_at, false) %> </span>
   </p>
 
   <% if login? && authorized?(comment.user.id)%>
@@ -13,5 +13,5 @@
       </form>
   </div>
   <% end %>
-
 </section>
+<hr class="after-comment_<%= comment.id %>">
