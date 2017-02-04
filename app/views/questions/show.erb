@@ -8,7 +8,7 @@
      <%= erb :'partials/_votes' %>
     <article class="contents">
       <p> <%= @question.content %> </p>
-      <p> <%= date_converter(@question.created_at, @question.updated_at) %> by <a href=""><%= @question.user.username.capitalize %> </a> </p>
+      <p> <%= date_converter(@question.created_at, @question.updated_at)%>by<a href=""><%= @question.user.username.capitalize %> </a> </p>
 
     <% if current_user && authorized?(@question.user.id)%>
     <div class="edit-question">
@@ -19,12 +19,15 @@
       </form>
     </div>
     <% end %>
-      
+
    <%= erb :"comments/index", locals: {question: @question} %>
-      
+
     </article>
+    <hr>
   </section>
-  <hr>
-  <a href="/questions/<%= @question.id %>/answers/new">Answer This Question</a>
-  <%= erb :"answers/show", locals: {question: @question} %>
+
+  <div>
+    <a class="answer-footer" href="/questions/<%= @question.id %>/answers/new">Answer This Question</a>
+    <%= erb :"answers/show", locals: {question: @question} %>
+  </div>
 </div>

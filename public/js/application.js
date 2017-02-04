@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+
 // AJAX for comments
 
   // NEW COMMENT
@@ -113,4 +114,26 @@ $(document).ready(function() {
   });
 
 // END OF COMMENT AJAX
+
+  $("#register-link").on("click", function(e){
+      e.preventDefault();
+      url = $(e.target).attr("href");
+      $.ajax({
+        method: 'get',
+        url: url
+      }).success(function(response){
+        $("#user-auth").html(response);
+      });
+    });
+  $("#login-link").on("click", function(e){
+      e.preventDefault();
+      url = $(e.target).attr("href");
+      $.ajax({
+        method: 'get',
+        url: url
+      }).success(function(response){
+        $("#user-auth").html(response);
+      });
+    });
+
 });
