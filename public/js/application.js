@@ -116,18 +116,56 @@ $(document).ready(function() {
 // END OF COMMENT AJAX
 
 //RINA AJAX BEGINS HERE
-// Hide Answer button/ Show Answer form
-$('.answer-footer').on('click', function(e){
+  // Hide Answer button/ Show Answer form
+$(".answer-footer").on("click", function(e){
   e.preventDefault();
 
   $.ajax({
-    url: $(e.target).attr('href'),
-    method: 'get'
+    url: $(e.target).attr("href"),
+    method: "get"
   }).success(function(response){
     $(e.target).hide().html(response)
-    $('.answer-container').html(response);
+    $(".answer-container").html(response);
   });
 });
+  // Post new Answer
+  $(".new-answer-form").on("submit", function(e) {
+    e.preventDefault();
+
+    $.ajax({
+      url: $(e.target).attr("action"),
+      method: "post",
+      data: $(e.target).serialize()
+    }).success(function(response) {
+        $("#answer-container").append(response);
+      })
+      .fail(function(error) {
+      })
+  })
+  // Show edit answer form
+  $(".edit-answer .edit").on("click", function(e) {
+    e.preventDefault();
+
+    $.ajax({
+      url: $(e.target).attr("href"),
+      method: "get"
+    }).success(function(response){
+      $(e.target).hide().html(response)
+      $(".answer-container").append(response);
+      });
+  });
+  // Delete an answer
+  $(".edit-answer .delete").on("submit", function(e) {
+    e.preventDefault();
+
+    $.ajax({
+      url: $(e.target).attr("action"),
+      method: "delete"
+    }).success(function(response) {
+        $("e.target").parent().parent().remove();
+        $(".answer-container" + response.id).remove();
+      });
+  });
 
 //RINA AJAX ENDS HERE
 
