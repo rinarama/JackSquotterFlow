@@ -48,7 +48,7 @@ $(document).ready(function() {
 
   // EDIT COMMENT
   // hide edit comment link and show comment form
-  $(".comments .edit-question a.edit").on("click", function(e) {
+  $(".comments-content").on("click",  ".edit-question a.edit", function(e) {
     e.preventDefault();
 
     $.ajax({
@@ -63,7 +63,7 @@ $(document).ready(function() {
   });
 
   // edit form update
-  $(".comments").on("submit", ".new-edit-form", function(e) {
+  $(".comments-content").on("submit", ".new-edit-form", function(e) {
     e.preventDefault();
 
     $.ajax({
@@ -86,7 +86,7 @@ $(document).ready(function() {
   })
 
   // edit form cancel button
-  $(".comments").on("click", ".new-edit-form a", function(e) {
+  $(".comments-content").on("click", ".new-edit-form a", function(e) {
     e.preventDefault();
 
     $(".edit-question").removeClass("hidden");
@@ -97,8 +97,18 @@ $(document).ready(function() {
   });
 
   // DELETE COMMENT
+  $(".comments-content").on("submit", ".delete", function(e) {
+    e.preventDefault();
 
+    $.ajax({
+      url: $(e.target).attr("action"),
+      method: "delete"
+    })
+      .done(function(msg) {
+        $("#comment_id_" + msg.id).siblings(".after-comment_" + msg.id).remove();
+        $("#comment_id_" + msg.id).remove();
+      });
+  });
 
 // END OF COMMENT AJAX
-
 });

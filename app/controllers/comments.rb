@@ -85,5 +85,10 @@ end
 delete "/questions/:q_id/comments/:id" do
   Comment.find_by_id(params[:id]).destroy
 
-  redirect "questions/#{params[:q_id]}"
+  if request.xhr?
+    content_type :json
+    { id: params[:id] }.to_json
+  else
+    redirect "questions/#{params[:q_id]}"
+  end
 end
