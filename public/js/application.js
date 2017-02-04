@@ -42,7 +42,56 @@ $(document).ready(function() {
     $(".comment-form a").removeClass("hidden");
     $(".new-edit-form").remove();
   });
-  
+
+
+  // EDIT COMMENT
+  // hide edit comment link and show comment form
+  $(".comments .edit-question a.edit").on("click", function(e) {
+    e.preventDefault();
+
+    $.ajax({
+      url: $(e.target).attr("href"),
+      method: "get"
+    })
+      .done(function(msg) {
+        $(e.target).parent().parent().append(msg);
+        $(e.target).parent().addClass("hidden");
+        $(e.target).parent().siblings("p").addClass("hidden");
+      });
+  });
+
+  // new form submit
+  $(".comments").on("submit", ".new-edit-form", function(e) {
+    e.preventDefault();
+
+    $.ajax({
+      url: $(e.target).attr("action"),
+      method: $(e.target).attr("method"),
+      data: $(e.target).serialize()
+    })
+      .done(function(msg) {
+        $(".edit-question").removeClass("hidden");
+        $(".comments").children("p").removeClass("hidden");
+        $(".new-edit-form").remove();
+
+        $("#comment_id_" + msg.id ).children("p").children("span.comment").html(msg.comment);
+        $("#comment_id_" + msg.id ).children("p").children("span.date").html(msg.date);
+      })
+      .fail(function(msg) {
+        $(e.target).before(msg.responseText);
+      })
+  })
+
+  // new form cancel button
+  $(".comments").on("click", ".new-edit-form a", function(e) {
+    e.preventDefault();
+
+    $(".edit-question").removeClass("hidden");
+    $(".comments").children("p").removeClass("hidden");
+
+    $(".new-edit-form").remove();
+  });
+
 // END OF COMMENT AJAX
 
 });

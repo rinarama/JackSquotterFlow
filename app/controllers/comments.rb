@@ -49,7 +49,11 @@ get "/questions/:q_id/comments/:id/edit" do
   @question = Question.find_by_id(params[:q_id])
   @comment = Comment.find_by_id(params[:id])
 
-  erb :"comments/edit"
+  if request.xhr?
+    erb :"comments/_editform", layout: false, locals: { question: @question, comment: @comment }
+  else
+    erb :"comments/edit"
+  end
 end
 
 # Update comment
@@ -57,7 +61,13 @@ put "/questions/:q_id/comments/:id" do
   @question = Question.find_by_id(params[:q_id])
   @comment = Comment.find_by_id(params[:id])
 
-  if @comment.update(comment: params[:comment])
+  update = @comment.update(comment: params[:comment])
+
+  if request.xhr? && update
+    date = date_converter(@comment.created_at, @comment.updated_at, false)
+    content_type :json
+    { id: @comment.id, comment: @comment.comment, date: date }.to_json
+  elsif update
     redirect "questions/#{@question.id}"
   else
     @errors = @comment.errors.full_messages
