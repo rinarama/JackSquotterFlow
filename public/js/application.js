@@ -72,6 +72,7 @@ $(document).ready(function() {
       data: $(e.target).serialize()
     })
       .done(function(msg) {
+        $(".comment-form a").removeClass("hidden");
         $(".edit-question").removeClass("hidden");
         $(".comments").children("p").removeClass("hidden");
         $(".new-edit-form").remove();
@@ -89,6 +90,7 @@ $(document).ready(function() {
   $(".comments-content").on("click", ".new-edit-form a", function(e) {
     e.preventDefault();
 
+    $(".comment-form a").removeClass("hidden");
     $(".edit-question").removeClass("hidden");
     $(".comments").children("p").removeClass("hidden");
 
