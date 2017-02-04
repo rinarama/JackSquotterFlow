@@ -29,6 +29,7 @@ $(document).ready(function() {
       .done(function(msg) {
         $(".comments-content").append(msg);
         $(e.target).children("textarea").val("");
+        $("#error").remove();
       })
       .fail(function(msg) {
         $(e.target).before(msg.responseText);
@@ -41,6 +42,7 @@ $(document).ready(function() {
 
     $(".comment-form a").removeClass("hidden");
     $(".new-edit-form").remove();
+    $("#error").remove();
   });
 
 
@@ -60,7 +62,7 @@ $(document).ready(function() {
       });
   });
 
-  // new form submit
+  // edit form update
   $(".comments").on("submit", ".new-edit-form", function(e) {
     e.preventDefault();
 
@@ -73,6 +75,7 @@ $(document).ready(function() {
         $(".edit-question").removeClass("hidden");
         $(".comments").children("p").removeClass("hidden");
         $(".new-edit-form").remove();
+        $("#error").remove();
 
         $("#comment_id_" + msg.id ).children("p").children("span.comment").html(msg.comment);
         $("#comment_id_" + msg.id ).children("p").children("span.date").html(msg.date);
@@ -82,18 +85,19 @@ $(document).ready(function() {
       })
   })
 
-  // new form cancel button
+  // edit form cancel button
   $(".comments").on("click", ".new-edit-form a", function(e) {
     e.preventDefault();
 
     $(".edit-question").removeClass("hidden");
     $(".comments").children("p").removeClass("hidden");
 
+    $("#error").remove();
     $(".new-edit-form").remove();
   });
 
   // DELETE COMMENT
-  
+
 
 // END OF COMMENT AJAX
 
