@@ -1,0 +1,7 @@
+<%= erb :"partials/_errors" %>
+
+<form class="new-edit-form" action="/questions/<%= question.id %>/comments" method="post">
+  <textarea rows="5" cols="81" name="comment" placeholder="Enter your mischievous comment here.."></textarea><br><br>
+  <input type="submit" value="Create New Comment">
+  <a href="/questions/<%= question.id %>">Cancel</a>
+</form>

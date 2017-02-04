@@ -328,3 +328,9 @@ section.comments p {
 .question-show .contents section.comments form.delete input {
   padding: 5px;
   font-size: 10px;
+
+}
+
+.hidden {
+  display: none;
+}
