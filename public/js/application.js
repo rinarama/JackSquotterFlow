@@ -1,5 +1,6 @@
 $(document).ready(function() {
-  $("#register-link").on("click", function(e){
+// begin Leila Ajax
+  $("#register-link").click(function(e){
       e.preventDefault();
       url = $(e.target).attr("href");
       $.ajax({
@@ -9,7 +10,7 @@ $(document).ready(function() {
         $("#user-auth").html(response);
       });
     });
-  $("#login-link").on("click", function(e){
+  $("#login-link").click(function(e){
       e.preventDefault();
       url = $(e.target).attr("href");
       $.ajax({
@@ -19,4 +20,22 @@ $(document).ready(function() {
         $("#user-auth").html(response);
       });
     });
+    $(".ask-question").on("click", function(e){
+        e.preventDefault();
+        url = $(e.target).attr("href");
+        $.ajax({
+          method: 'get',
+          url: url
+        }).success(function(response){
+          $(".ask-question").html(response);
+        });
+
+      });
+
+
+
+
+    //
+    // end of leila's ajax
+
 });

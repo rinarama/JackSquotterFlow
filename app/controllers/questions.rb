@@ -37,7 +37,6 @@ end
 put "/questions/:id" do
   require_user
   @question = Question.find_by_id(params[:id])
-
   if  @question.update(params[:question])
     redirect "/questions/#{@question.id}"
   else
