@@ -1,0 +1,16 @@
+<article class="flex-container question-summary">
+  <div class="mini-counter">
+    <p> <%=@question.all_votes %></p>
+    <p>votes</p>
+  </div>
+  <div class="mini-counter">
+    <p><%=@question.answers.count%></p>
+    <p>answers</p>
+  </div>
+  <div class="summary">
+  <h3> <a href="/questions/<%= @question.id %>"> <%= @question.title.capitalize %> </a> </h3>
+  <p> <%= stub(@question.content) %> </p>
+  <p> <%= date_converter(@question.created_at, @question.updated_at) %> by <a href=""><%= @question.user.username.capitalize %></a></p>
+  <div>
+</article>
+<hr>
