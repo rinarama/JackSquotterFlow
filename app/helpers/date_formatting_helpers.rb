@@ -1,5 +1,10 @@
-def date_converter(created, updated)
-  result = (updated - created) > 0 ? "modified " : "asked "
+def date_converter(created, updated, question = true)
+  result = ""
+  
+  if question
+    result += (updated - created) > 0 ? "modified " : "asked "
+  end
+
   time_lapse = Time.now - updated
   time_lapse = time_lapse.to_i
 

@@ -1,11 +1,4 @@
-<div class="">
-
-  <%=  erb :'/partials/_errors'%>
-
-  <form class="" action="/answers" method="post">
-    <label for="your_answer">Your Answer</label>
-    <input type="text" name="answer" value="" id='answer'>
-
-    <input type="submit" name="" value="Post Your Answer">
-  </form>
+<div class="answer-container">
+  <h1>What's your answer?</h1>
+  <%= erb :"partials/_one_answer", locals: { question: @question, answer: @answer } %>
 </div>

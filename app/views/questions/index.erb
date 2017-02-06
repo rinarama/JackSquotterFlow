@@ -1,7 +1,9 @@
 <div class="question-container">
   <section class="question-summary-header">
     <h1>All Mischievous Questions</h1>
-    <p><a href="/questions/new"> Ask Question </a></p>
+    <div class="ask-question-form">
+      <p><a href="/questions/new"> Ask Question </a></p>
+    </div>
   </section>
 
   <section class="question-summary-body">
@@ -9,11 +11,11 @@
       <hr>
       <article class="flex-container question-summary">
         <div class="mini-counter">
-          <p>0</p>
+          <p> <%=question.all_votes %></p>
           <p>votes</p>
         </div>
         <div class="mini-counter">
-          <p>0</p>
+          <p><%=question.answers.count%></p>
           <p>answers</p>
         </div>
         <div class="summary">

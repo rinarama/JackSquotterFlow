@@ -1,0 +1,4 @@
+<div class="question-container">
+  <h1>Edit comment in: <%= @question.title %></h1>
+  <%= erb :"comments/_editform", locals: { question: @question, comment: @comment } %>
+</div>

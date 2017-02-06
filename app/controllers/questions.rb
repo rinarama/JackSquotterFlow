@@ -5,18 +5,25 @@ end
 
 get "/questions/new" do
   require_user
-  erb :"questions/new"
+  if request.xhr?
+    erb :'/partials/_question_form', layout: false
+  else
+    erb :"questions/new"
+  end
 end
 
 #post a new question
 post "/questions" do
   require_user
-  question = current_user.questions.new(params[:question])
-
-  if question.save
-    redirect "/questions"
+  @question = current_user.questions.new(params[:question])
+  if @question.save
+    if request.xhr?
+      erb :"/partials/_one_question", layout: false, locals: { question: @question }
+    else
+      redirect "/questions"
+    end
   else
-    @errors = question.errors.full_messages
+    @errors = @question.errors.full_messages
     erb :"questions/new"
   end
 end
@@ -37,7 +44,6 @@ end
 put "/questions/:id" do
   require_user
   @question = Question.find_by_id(params[:id])
-
   if  @question.update(params[:question])
     redirect "/questions/#{@question.id}"
   else

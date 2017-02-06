@@ -1,0 +1,16 @@
+<section class="comment-container">
+  <div class="comments-content">
+    <% if comments?(question) %>
+    <hr>
+      <% question.comments.each do |comment| %>
+
+        <%= erb :"comments/show", locals: {question: question, comment: comment}%>
+
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="comment-form">
+    <a href="/questions/<%= question.id %>/comments/new">add a comment</a>
+  </div>
+</section>

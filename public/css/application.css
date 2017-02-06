@@ -7,11 +7,13 @@
 }
 
 .site-title{
-    font-weight: 700;
+    font-family: "Candara";
     color: #444;
     line-height: 54px;
-    text-transform: uppercase;
     text-align: center;
+    margin: 0.5em 0;
+    font-size: 3em;
+    font-weight: 300;
 }
 
 body {
@@ -23,7 +25,34 @@ body {
 }
 
 nav {
+  font-size: 15px;
   background-color: #DEDEDE;
+  text-align: left;
+  padding-right: 50px;
+  padding: 10px;
+}
+
+nav a {
+  padding: 0 10px;
+}
+.box {
+  background: white;
+  display: inline;
+  border: 1px solid black;
+  margin-left: 20px;
+  margin-top: 8%;
+  width: 300px;
+  height: 300px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right:0;
+    z-index: 1000;
+    background: #1f8dd6;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    color: black;
 }
 
 p {
@@ -201,4 +230,107 @@ input {
 
 .question-container form.new-edit-form  a:hover {
   background-color: #ea6311;
+}
+
+
+a.answer-footer  {
+  background-color: #888;
+  color: white;
+  padding: 5px;
+  font-size: 15px;
+}
+
+a.answer-footer:hover {
+  background-color: #32cd32;
+}
+
+.answer-show .vote {
+  display: inline-block;
+  width: 100px;
+  text-align: center;
+  vertical-align: top;
+  margin-top: 15px;
+}
+
+.answer-show .vote p {
+  text-align: center;
+  margin: 0px
+}
+
+.answer-show .vote button {
+   background-color: transparent;
+   border: none;
+   font-size: 2em;
+   padding-top: 5px;
+   color: #8C8C8C;
+   vertical-align: sub;
+   padding: 1px 0px 0px 0px;
+}
+
+.answer-show .answer-content {
+  display: inline-block;
+  width: 900px;
+}
+
+.answer-show .answer-content {
+  display: inline-block;
+  width: 900px;
+}
+
+.edit-answer form.delete {
+  display: inline-block;
+}
+
+.edit-answer form.delete input {
+  border: none;
+  background: transparent;
+  background-color: #ff2e2e;
+  color: white;
+  padding: 10px;
+}
+
+.edit-answer form.delete input:hover {
+  background-color: #ea6311;
+}
+
+.edit-answer a.edit {
+  border: none;
+  background: transparent;
+  background-color: #888;
+  color: white;
+  padding: 10px;
+}
+
+.edit-answer a.edit:hover {
+  background-color: #ea6311;
+}
+
+.question-show {
+  margin-bottom: 15px;
+
+section.comment-container {
+  margin: 30px 0px 10px 0px;
+}
+
+section.comments {
+  padding-left: 20px;
+}
+
+section.comments p {
+  font-size: 14px;
+}
+
+.question-show .contents section.comments a.edit {
+  padding: 5px;
+  font-size: 10px;
+}
+
+.question-show .contents section.comments form.delete input {
+  padding: 5px;
+  font-size: 10px;
+
+}
+
+.hidden {
+  display: none;
 }
