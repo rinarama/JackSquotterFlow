@@ -198,18 +198,18 @@ $(".answer-footer").on("click", function(e){
           $(".ask-question-form").html(response);
         });
       });
-//       $(".new-edit-form").on("submit", function(e){
-//         e.preventDefault
-//         debugger
-//         url = $(e.target).attr("href");
-//         $.ajax({
-//           method: 'get',
-//           url: url
-//         }).success(function(response){
-//           $(".ask-question-form").hide();
-//         })
-//       })
-// //clear somewhere else in window hide form
-//End leila ajax
+      $(".new-edit-form").on("submit", function(e){
+        e.preventDefault
+        debugger
+        url = $(e.target).attr("href");
+        $.ajax({
+          method: 'get',
+          url: url
+        }).success(function(response){
+          $(".ask-question-form").hide();
+        })
+      })
+
+// End leila ajax
 
 });
