@@ -1,6 +1,4 @@
 $(document).ready(function() {
-
-
 // AJAX for comments
 
   // NEW COMMENT
@@ -168,8 +166,18 @@ $(".answer-footer").on("click", function(e){
   });
 
 //RINA AJAX ENDS HERE
-
-  $("#register-link").on("click", function(e){
+  //LEILA AJAX BEGINS
+  $(".nav-bar").on("click", "#register-link", function(e){
+      e.preventDefault();
+      url = $(e.target).attr("href");
+      $.ajax({
+        method: 'get',
+        url: url
+      }).success(function(response){
+        $("#user-auth").html(response);
+      })
+    });
+  $(".nav-bar").on("click", "#login-link", function(e){
       e.preventDefault();
       url = $(e.target).attr("href");
       $.ajax({
@@ -179,15 +187,28 @@ $(".answer-footer").on("click", function(e){
         $("#user-auth").html(response);
       });
     });
-  $("#login-link").on("click", function(e){
-      e.preventDefault();
-      url = $(e.target).attr("href");
-      $.ajax({
-        method: 'get',
-        url: url
-      }).success(function(response){
-        $("#user-auth").html(response);
+    $(".ask-question-form").on("click", "a", function(e){
+        e.preventDefault();
+        url = $(e.target).attr("href");
+        $.ajax({
+          method: 'get',
+          url: url
+        }).success(function(response){
+          $(".ask-question-form").html(response);
+        });
       });
-    });
+//       $(".new-edit-form").on("submit", function(e){
+//         e.preventDefault
+//         debugger
+//         url = $(e.target).attr("href");
+//         $.ajax({
+//           method: 'get',
+//           url: url
+//         }).success(function(response){
+//           $(".ask-question-form").hide();
+//         })
+//       })
+// //clear somewhere else in window hide form
+//End leila ajax
 
 });
