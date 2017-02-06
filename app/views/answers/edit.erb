@@ -1,12 +1,5 @@
 <div class="answer-container">
   <h1>Edit answer</h1>
-  <%=  erb :'/partials/_errors'%>
-
-  <form class="edit-answer-form" action="/questions/:id/answers/<%= @answer.id%>" method="post">
-    <input type="hidden" name="_method" value="put">
-    <label for="edit_answer">Edit Answer</label>
-    <input type="text" name="answer[answer]" value="<%= @answer.answer%>" id="answer">
-    <input type="submit" value="Update Your Answer">
-  </form>
-
+  <%= erb :'/partials/_errors' %>
+  <%= erb :"partials/_edit_answer", locals: { question: @question, answer: @answer } %>
 </div>

@@ -1,0 +1,10 @@
+<div class="one-answer">
+  <% if login? %>
+    <%=  erb :'/partials/_errors'%>
+    <form class="new-answer-form" action="/questions/<%= question.id %>/answers" method="post">
+      <label for="your_answer">Write your answer here... </label>
+      <input type="text" name="answer" value="" id='answer'>
+      <input type="submit" name="" value="Post Your Answer">
+    </form>
+  <%end%>
+</div>
