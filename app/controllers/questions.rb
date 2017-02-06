@@ -15,15 +15,15 @@ end
 #post a new question
 post "/questions" do
   require_user
-  question = current_user.questions.new(params[:question])
-  if question.save
+  @question = current_user.questions.new(params[:question])
+  if @question.save
     if request.xhr?
-      erb :"/questions", layout: false
+      erb :"/partials/_one_question", layout: false, locals: { question: @question }
     else
       redirect "/questions"
     end
   else
-    @errors = question.errors.full_messages
+    @errors = @question.errors.full_messages
     erb :"questions/new"
   end
 end

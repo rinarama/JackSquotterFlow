@@ -188,6 +188,7 @@ $(".answer-footer").on("click", function(e){
         $("#user-auth").html(response);
       });
     });
+    // show question form
     $(".ask-question-form").on("click", "a", function(e){
         e.preventDefault();
         url = $(e.target).attr("href");
@@ -195,18 +196,23 @@ $(".answer-footer").on("click", function(e){
           method: 'get',
           url: url
         }).success(function(response){
-          $(".ask-question-form").html(response);
+          $(".ask-question-form p").hide();
+          $(".ask-question-form").append(response);
         });
       });
-      $(".new-edit-form").on("submit", function(e){
-        e.preventDefault
-        debugger
-        url = $(e.target).attr("href");
+      // post question
+      $(".question-summary-header").on("submit", ".new-edit-form", function(e){
+        e.preventDefault();
+        url = $(e.target).attr("action");
+        data = $(e.target).serialize();
         $.ajax({
-          method: 'get',
-          url: url
+          method: 'post',
+          url: url,
+          data: data
         }).success(function(response){
-          $(".ask-question-form").hide();
+          $(".question-summary-body").append(response);
+          $(".new-edit-form").remove();
+          $(".ask-question-form p").show();
         })
       })
 
