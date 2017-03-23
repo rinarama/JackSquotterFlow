@@ -1,7 +1,11 @@
 # JackSquotterFlow
-DBC Overflow February 2017
-Team Name: Team TBD
+Clone of Stack Overflow.
+Tech used: Ruby, Sinatra, ActiveRecord, jQuery/Ajax, and bcrypt (user auth).
+
+February 2017
+
 Team Members: Leila Gleich, Karina Robinson, Kendy Ng
+
 User Stories:
 As a user I want to be able to...
 * Log In
